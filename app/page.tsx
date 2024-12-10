@@ -11,6 +11,16 @@ import { FileCode, PenTool, Code, Globe, Puzzle, Coffee, Cpu, Database, Figma, M
 import Image from 'next/image'
 import ProjectPopup from '../components/ProjectPopup'
 
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  demo: string;
+  source: string;
+  learnMore: string;
+};
+
 const projects = [
   {
     title: "Bolton Cup",
@@ -94,7 +104,7 @@ export default function Home() {
     setCurrentPage((prev) => (prev - 1 + Math.ceil(projects.length / projectsPerPage)) % Math.ceil(projects.length / projectsPerPage));
   };
 
-  const handleLearnMore = (project) => {
+  const handleLearnMore = (project: Project) => {
     setSelectedProject(project);
   };
 
