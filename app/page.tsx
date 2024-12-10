@@ -93,7 +93,7 @@ const skills = [
 
 export default function Home() {
   const [currentPage, setCurrentPage] = useState(0);
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const projectsPerPage = 3;
 
   const nextProjects = () => {
