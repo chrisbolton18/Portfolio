@@ -14,7 +14,7 @@ import ProjectPopup from '../components/ProjectPopup'
 const projects = [
   {
     title: "Bolton Cup",
-    description: "This is the website for the annual Bolton Cup hockey tournament. It holds game results, player statistics, player profiles, etc.",
+    description: "This is the website for the annual Bolton Cup hockey tournament. It holds game results, player statistics, player profiles, etc., providing fans and participants with up-to-date tournament information and highlights.",
     technologies: ["HTML", "Blazor", "JavaScript", "SQL"],
     image: "/boltoncup.jpeg",
     demo: "https://boltoncup.ca",
