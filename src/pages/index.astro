@@ -4,171 +4,253 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Portfolio">
   <style>
-    :global(html),
-    :global(body) {
-      height: 100%;
-      overflow: hidden;
+    :global(html) {
+      scroll-behavior: smooth;
     }
   </style>
 
-  <div class="h-[calc(100vh-140px)] grid grid-cols-12 gap-6 items-start">
-    <!-- LEFT: Profile + Experience -->
+  <div id="top" class="space-y-8">
+    <!-- HERO -->
     <section
-      class="col-span-12 lg:col-span-8 rounded-2xl p-8
+      class="rounded-2xl p-8 md:p-10
              bg-white/5 backdrop-blur border border-white/10
              shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_20px_60px_rgba(0,0,0,0.35)]"
     >
-      <!-- Header -->
-      <div>
-        <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight">
-          Chris Bolton
-        </h1>
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+        <div class="min-w-0">
+          <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight">
+            IT Systems & Automation
+          </h1>
+          <p class="text-slate-300 mt-4 max-w-2xl">
+            I build internal tools, automate workflows, and integrate APIs to keep operations fast, clean, and reliable.
+          </p>
 
-        <p class="text-slate-300 mt-4 max-w-2xl">
-          IT Administrator focused on automation, internal systems,
-          API integrations, and operational tooling.
-        </p>
-
-        <div class="mt-5 flex flex-wrap gap-2">
-          <span class="px-3 py-1 rounded-full text-xs bg-cyan-400/10 border border-cyan-300/20 text-cyan-200">
-            automation
-          </span>
-          <span class="px-3 py-1 rounded-full text-xs bg-violet-400/10 border border-violet-300/20 text-violet-200">
-            integrations
-          </span>
-          <span class="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-            dashboards
-          </span>
-          <span class="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-            infrastructure
-          </span>
-        </div>
-      </div>
-
-      <!-- Employment + Skills Grid -->
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Employment -->
-        <div class="rounded-xl p-6 border border-white/10 bg-black/20">
-          <div class="flex items-center justify-between">
-            <div class="text-white font-semibold">Employment</div>
-            <span class="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">
-              current
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full text-xs bg-cyan-400/10 border border-cyan-300/20 text-cyan-200">
+              automation
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs bg-violet-400/10 border border-violet-300/20 text-violet-200">
+              integrations
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
+              internal tools
+            </span>
+            <span class="px-3 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
+              infrastructure
             </span>
           </div>
 
-          <div class="mt-4 text-sm text-white font-medium">
-            IT Admin · Landscape Effects Group
-          </div>
-
-          <div class="mt-2 text-xs text-slate-400 leading-relaxed">
-            Responsible for internal systems, automation pipelines,
-            Microsoft 365 management, API integrations,
-            reporting tools, and technical operations support.
-          </div>
-
-          <div class="mt-5 text-xs text-slate-400">focus areas</div>
-          <div class="mt-2 flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              Helpdesk
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              Automation
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              Internal Tools
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              Reporting
-            </span>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a
+              href="#projects"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-lg
+                     bg-gradient-to-r from-cyan-500/80 to-violet-500/80
+                     hover:from-cyan-500 hover:to-violet-500 transition text-white font-semibold text-sm"
+            >
+              View projects →
+            </a>
+            <a
+              href="#contact"
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-lg
+                     bg-white/5 border border-white/10 hover:bg-white/10 transition
+                     text-slate-200 font-semibold text-sm"
+            >
+              Contact →
+            </a>
           </div>
         </div>
 
-        <!-- Skills & Certifications -->
-        <div class="rounded-xl p-6 border border-white/10 bg-black/20">
-          <div class="text-white font-semibold">Skills & Certifications</div>
-
-          <div class="mt-4 text-xs text-slate-400">technical</div>
-          <div class="mt-2 flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 rounded-full text-xs bg-cyan-400/10 border border-cyan-300/20 text-cyan-200">
-              Power Automate
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              Microsoft 365
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              SharePoint / Graph
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-violet-400/10 border border-violet-300/20 text-violet-200">
-              API Design
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              Python
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              Node.js
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              .NET
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              SQL
-            </span>
+        <!-- Spotify widget (unchanged style + logic) -->
+        <div
+          class="w-full lg:w-[420px] rounded-2xl p-6
+                 bg-white/5 backdrop-blur border border-white/10
+                 shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_20px_60px_rgba(0,0,0,0.35)]"
+        >
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <div class="text-white font-semibold">Last Listened To</div>
+              <div class="text-slate-400 text-xs mt-1">source: Spotify API</div>
+            </div>
+            <div id="spotify-status" class="text-slate-300 text-sm">fetching…</div>
           </div>
 
-          <div class="mt-6 text-xs text-slate-400">certifications</div>
-          <div class="mt-2 flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              (add cert)
-            </span>
-            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">
-              (add cert)
-            </span>
+          <div class="mt-5 flex items-start gap-4">
+            <img
+              id="spotify-image"
+              class="w-14 h-14 rounded-lg hidden border border-white/10"
+              alt="Album cover"
+              loading="lazy"
+            />
+
+            <div>
+              <div id="spotify-title" class="text-white font-medium">—</div>
+              <div id="spotify-artist" class="text-slate-300 text-sm mt-1">—</div>
+              <div id="spotify-album" class="text-slate-400 text-xs mt-1">album: —</div>
+
+              <div class="mt-4">
+                <a
+                  id="spotify-link"
+                  class="inline-flex items-center gap-2 text-sm font-semibold text-white
+                         px-4 py-2 rounded-lg
+                         bg-gradient-to-r from-cyan-500/80 to-violet-500/80
+                         hover:from-cyan-500 hover:to-violet-500 transition hidden"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Click here to listen →
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- RIGHT: Spotify widget -->
+    <!-- EMPLOYMENT -->
     <section
-      class="col-span-12 lg:col-span-4 rounded-2xl p-6
+      id="employment"
+      class="rounded-2xl p-8
              bg-white/5 backdrop-blur border border-white/10
              shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_20px_60px_rgba(0,0,0,0.35)]"
     >
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <div class="text-white font-semibold">Last Listened To</div>
-          <div class="text-slate-400 text-xs mt-1">source: Spotify API</div>
-        </div>
-        <div id="spotify-status" class="text-slate-300 text-sm">fetching…</div>
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-white font-semibold text-xl">Employment</h2>
+        <span class="text-xs px-2 py-1 rounded-full bg-white/5 border border-white/10 text-slate-300">
+          current
+        </span>
       </div>
 
-      <div class="mt-5 flex items-start gap-4">
-        <img
-          id="spotify-image"
-          class="w-14 h-14 rounded-lg hidden border border-white/10"
-          alt="Album cover"
-          loading="lazy"
-        />
+      <div class="mt-5 grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2 rounded-xl p-6 border border-white/10 bg-black/20">
+          <div class="text-white font-semibold">IT Admin · Landscape Effects Group</div>
+          <div class="text-slate-400 text-sm mt-2">
+            Internal systems, automation pipelines, Microsoft 365 management, API integrations, reporting tools,
+            and technical operations support.
+          </div>
 
-        <div>
-          <div id="spotify-title" class="text-white font-medium">—</div>
-          <div id="spotify-artist" class="text-slate-300 text-sm mt-1">—</div>
-          <div id="spotify-album" class="text-slate-400 text-xs mt-1">album: —</div>
-
-          <div class="mt-4">
-            <a
-              id="spotify-link"
-              class="inline-flex items-center gap-2 text-sm font-semibold text-white
-                     px-4 py-2 rounded-lg
-                     bg-gradient-to-r from-cyan-500/80 to-violet-500/80
-                     hover:from-cyan-500 hover:to-violet-500 transition hidden"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Click here to listen →
-            </a>
+          <div class="mt-5 text-xs text-slate-400">focus areas</div>
+          <div class="mt-2 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">Helpdesk</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">Automation</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">Internal Tools</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">Reporting</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">M365</span>
           </div>
         </div>
+
+        <div class="rounded-xl p-6 border border-white/10 bg-black/20">
+          <div class="text-xs text-slate-400">worked with</div>
+          <div class="mt-3 flex flex-col gap-2 text-slate-200 text-sm">
+            <div class="flex items-center justify-between">
+              <span>operations teams</span><span class="text-slate-400">ops</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>field + fleet</span><span class="text-slate-400">fleet</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>admin + finance</span><span class="text-slate-400">admin</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span>project teams</span><span class="text-slate-400">delivery</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section
+      id="skills"
+      class="rounded-2xl p-8
+             bg-white/5 backdrop-blur border border-white/10
+             shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_20px_60px_rgba(0,0,0,0.35)]"
+    >
+      <h2 class="text-white font-semibold text-xl">Skills & Certifications</h2>
+
+      <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="rounded-xl p-6 border border-white/10 bg-black/20">
+          <div class="text-xs text-slate-400">skills</div>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-full text-xs bg-cyan-400/10 border border-cyan-300/20 text-cyan-200">Power Automate</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">Microsoft 365</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">SharePoint / Graph</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-violet-400/10 border border-violet-300/20 text-violet-200">API Integration</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">Python</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">Node.js</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">.NET</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">SQL</span>
+          </div>
+        </div>
+
+        <div class="rounded-xl p-6 border border-white/10 bg-black/20">
+          <div class="text-xs text-slate-400">certifications</div>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">(add cert)</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">(add cert)</span>
+            <span class="px-2.5 py-1 rounded-full text-xs bg-white/5 border border-white/10 text-slate-200">(add cert)</span>
+          </div>
+
+          <div class="mt-5 text-xs text-slate-400">note</div>
+          <div class="mt-2 text-sm text-slate-200">
+            If you want, we can turn these into clickable badges with verification links.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section
+      id="projects"
+      class="rounded-2xl p-8
+             bg-white/5 backdrop-blur border border-white/10
+             shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_20px_60px_rgba(0,0,0,0.35)]"
+    >
+      <h2 class="text-white font-semibold text-xl">Projects</h2>
+      <div class="text-slate-400 text-sm mt-2">
+        We’ll fill these in with real deployments next.
+      </div>
+
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="rounded-xl p-6 border border-white/10 bg-black/20">
+          <div class="text-white font-semibold">Samsara Fleet Reporting</div>
+          <div class="text-slate-300 text-sm mt-2">
+            Automated odometer / engine-hour reporting across vehicles and equipment.
+          </div>
+          <div class="text-slate-400 text-xs mt-4">Python · Samsara API · CSV</div>
+        </div>
+
+        <div class="rounded-xl p-6 border border-white/10 bg-black/20">
+          <div class="text-white font-semibold">TimeDoctor Report Bot</div>
+          <div class="text-slate-300 text-sm mt-2">
+            Scheduled report export + email delivery, designed for ops teams.
+          </div>
+          <div class="text-slate-400 text-xs mt-4">Python · Selenium · SMTP</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section
+      id="contact"
+      class="rounded-2xl p-8
+             bg-white/5 backdrop-blur border border-white/10
+             shadow-[0_0_0_1px_rgba(255,255,255,0.05),0_20px_60px_rgba(0,0,0,0.35)]"
+    >
+      <h2 class="text-white font-semibold text-xl">Contact</h2>
+      <div class="text-slate-300 text-sm mt-3">
+        Add your links here (email, LinkedIn, GitHub). We can wire these to real URLs next.
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm" href="#">
+          GitHub
+        </a>
+        <a class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm" href="#">
+          LinkedIn
+        </a>
+        <a class="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition text-sm" href="#">
+          Email
+        </a>
       </div>
     </section>
   </div>
@@ -186,7 +268,7 @@ import Layout from '../layouts/Layout.astro';
         const res = await fetch("/api/spotify.json", { cache: "no-store" });
         const data = await res.json();
 
-        if (!res.ok) throw new Error();
+        if (!res.ok) throw new Error(data?.error || "Failed to fetch Spotify data");
 
         statusEl.textContent = data.isPlaying ? "● playing" : "online";
 
@@ -197,11 +279,15 @@ import Layout from '../layouts/Layout.astro';
         if (data.image) {
           imageEl.src = data.image;
           imageEl.classList.remove("hidden");
+        } else {
+          imageEl.classList.add("hidden");
         }
 
         if (data.url) {
           linkEl.href = data.url;
           linkEl.classList.remove("hidden");
+        } else {
+          linkEl.classList.add("hidden");
         }
       } catch {
         statusEl.textContent = "Spotify unavailable";

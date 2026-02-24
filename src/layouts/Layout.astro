@@ -15,6 +15,7 @@ const { title = "Portfolio" } = Astro.props;
 
   <body class="bg-[#070A12] text-slate-100 antialiased">
     <div class="min-h-screen relative overflow-hidden">
+      
       <!-- Ambient gradient blobs -->
       <div class="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-cyan-500/20 blur-3xl"></div>
       <div class="pointer-events-none absolute -bottom-40 -right-40 h-[560px] w-[560px] rounded-full bg-violet-500/20 blur-3xl"></div>
@@ -26,29 +27,9 @@ const { title = "Portfolio" } = Astro.props;
                bg-[size:44px_44px]"
       ></div>
 
-      <!-- Top bar -->
-      <header class="relative z-10 border-b border-white/10 bg-white/5 backdrop-blur">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-          <div class="flex items-center gap-3">
-            <div class="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_18px_rgba(34,211,238,0.55)]"></div>
-            <div class="text-white font-semibold tracking-wide">Chris Bolton</div>
-          </div>
-
-          <nav class="flex items-center gap-6 text-sm">
-            <a class="text-slate-300 hover:text-white transition" href="/">home</a>
-            <a class="text-slate-300 hover:text-white transition" href="/about">about</a>
-            <a class="text-slate-300 hover:text-white transition" href="/deployments">deployments</a>
-            <a class="text-slate-300 hover:text-white transition" href="/contact">contact</a>
-          </nav>
-        </div>
-
-        <!-- thin accent line -->
-        <div class="h-px w-full bg-gradient-to-r from-cyan-400/70 via-violet-400/60 to-transparent"></div>
-      </header>
-
-      <!-- Main -->
+      <!-- Main Content -->
       <main class="relative z-10">
-        <div class="max-w-7xl mx-auto px-4 py-8">
+        <div class="max-w-7xl mx-auto px-4 py-12">
           <slot />
         </div>
       </main>
@@ -59,6 +40,7 @@ const { title = "Portfolio" } = Astro.props;
           © {new Date().getFullYear()} Chris Bolton
         </div>
       </footer>
+
     </div>
   </body>
 </html>
