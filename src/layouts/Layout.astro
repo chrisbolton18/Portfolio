@@ -10,31 +10,40 @@ const { title = "Portfolio" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{title}</title>
-    <meta name="description" content="IT-themed portfolio." />
+    <meta name="description" content="Chris Bolton - IT Systems & Automation Portfolio." />
   </head>
 
-  <body class="bg-[#0D1117] text-green-400 font-mono">
+  <body class="bg-[#070A12] text-slate-100 antialiased">
     <div class="min-h-screen relative overflow-hidden">
-      <!-- Subtle grid background -->
+      <!-- Ambient gradient blobs -->
+      <div class="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-cyan-500/20 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-40 -right-40 h-[560px] w-[560px] rounded-full bg-violet-500/20 blur-3xl"></div>
+
+      <!-- Subtle grid -->
       <div
-        class="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"
+        class="pointer-events-none absolute inset-0 opacity-20
+               bg-[linear-gradient(to_right,rgba(148,163,184,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(148,163,184,0.12)_1px,transparent_1px)]
+               bg-[size:44px_44px]"
       ></div>
 
       <!-- Top bar -->
-      <header class="relative z-10 border-b border-green-500/20 bg-[#0B1018]/80 backdrop-blur">
+      <header class="relative z-10 border-b border-white/10 bg-white/5 backdrop-blur">
         <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <span class="text-green-400">●</span>
-            <span class="text-white font-bold tracking-wide">PORTFOLIO</span>
+            <div class="h-2.5 w-2.5 rounded-full bg-cyan-400 shadow-[0_0_18px_rgba(34,211,238,0.55)]"></div>
+            <div class="text-white font-semibold tracking-wide">Chris Bolton</div>
           </div>
 
           <nav class="flex items-center gap-6 text-sm">
-            <a class="text-green-300/90 hover:text-white transition" href="/">home</a>
-            <a class="text-green-300/90 hover:text-white transition" href="/about">about</a>
-            <a class="text-green-300/90 hover:text-white transition" href="/deployments">deployments</a>
-            <a class="text-green-300/90 hover:text-white transition" href="/contact">contact</a>
+            <a class="text-slate-300 hover:text-white transition" href="/">home</a>
+            <a class="text-slate-300 hover:text-white transition" href="/about">about</a>
+            <a class="text-slate-300 hover:text-white transition" href="/deployments">deployments</a>
+            <a class="text-slate-300 hover:text-white transition" href="/contact">contact</a>
           </nav>
         </div>
+
+        <!-- thin accent line -->
+        <div class="h-px w-full bg-gradient-to-r from-cyan-400/70 via-violet-400/60 to-transparent"></div>
       </header>
 
       <!-- Main -->
@@ -45,10 +54,9 @@ const { title = "Portfolio" } = Astro.props;
       </main>
 
       <!-- Footer -->
-      <footer class="relative z-10 border-t border-green-500/10">
-        <div class="max-w-7xl mx-auto px-4 py-6 text-xs text-green-500/70 flex justify-between">
-          <span>status: operational</span>
-          <span>© {new Date().getFullYear()} Chris Bolton</span>
+      <footer class="relative z-10 border-t border-white/10 bg-white/5 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-4 py-5 text-xs text-slate-400 text-center">
+          © {new Date().getFullYear()} Chris Bolton
         </div>
       </footer>
     </div>
