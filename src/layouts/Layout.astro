@@ -14,8 +14,8 @@ const { title = "Portfolio" } = Astro.props;
   </head>
 
   <body class="bg-[#070A12] text-slate-100 antialiased">
-    <div class="min-h-screen relative overflow-hidden">
-      
+    <!-- IMPORTANT: no overflow-hidden here -->
+    <div class="min-h-screen relative">
       <!-- Ambient gradient blobs -->
       <div class="pointer-events-none absolute -top-40 -left-40 h-[520px] w-[520px] rounded-full bg-cyan-500/20 blur-3xl"></div>
       <div class="pointer-events-none absolute -bottom-40 -right-40 h-[560px] w-[560px] rounded-full bg-violet-500/20 blur-3xl"></div>
@@ -29,7 +29,8 @@ const { title = "Portfolio" } = Astro.props;
 
       <!-- Main Content -->
       <main class="relative z-10">
-        <div class="max-w-7xl mx-auto px-4 py-12">
+        <!-- less top padding so the page can feel like it reaches the top -->
+        <div class="max-w-7xl mx-auto px-4 pt-6 pb-12">
           <slot />
         </div>
       </main>
@@ -40,7 +41,6 @@ const { title = "Portfolio" } = Astro.props;
           © {new Date().getFullYear()} Chris Bolton
         </div>
       </footer>
-
     </div>
   </body>
 </html>
