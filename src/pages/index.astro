@@ -1,0 +1,182 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Portfolio">
+  <style>
+    :global(html),
+    :global(body) {
+      height: 100%;
+      overflow: hidden;
+    }
+  </style>
+
+  <div class="h-[calc(100vh-160px)] min-h-[520px] grid grid-cols-12 gap-4 overflow-hidden">
+    <!-- LEFT: Main dashboard -->
+    <section class="col-span-12 lg:col-span-8 bg-[#161B22] border border-green-500/20 rounded-lg p-6 overflow-hidden">
+      <header class="flex items-start justify-between gap-6">
+        <div class="min-w-0">
+          <h1 class="text-4xl sm:text-5xl font-bold text-white leading-tight">
+            Chris Bolton
+          </h1>
+          <p class="text-green-400 mt-2 text-sm sm:text-base">
+            IT Systems | Automation | Infrastructure | Development
+          </p>
+          <p class="text-green-500/70 mt-3 text-sm max-w-2xl">
+            I build internal tools, automate workflows, and integrate systems using APIs to keep operations reliable.
+          </p>
+        </div>
+
+        <div class="shrink-0 hidden md:block">
+          <div class="rounded-md border border-green-500/10 bg-black/20 px-4 py-3">
+            <div class="text-green-500/70 text-xs">status</div>
+            <div class="text-green-400 text-sm mt-1">● Operational</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <a
+          href="/about"
+          class="rounded-lg border border-green-500/20 bg-[#0B1018]/70 p-5 hover:border-green-400/50 transition"
+        >
+          <div class="text-white font-bold">About</div>
+          <div class="text-green-500/70 text-sm mt-1">Skills + what I do.</div>
+        </a>
+
+        <a
+          href="/deployments"
+          class="rounded-lg border border-green-500/20 bg-[#0B1018]/70 p-5 hover:border-green-400/50 transition"
+        >
+          <div class="text-white font-bold">Deployments</div>
+          <div class="text-green-500/70 text-sm mt-1">Projects and systems.</div>
+        </a>
+
+        <a
+          href="/contact"
+          class="rounded-lg border border-green-500/20 bg-[#0B1018]/70 p-5 hover:border-green-400/50 transition"
+        >
+          <div class="text-white font-bold">Contact</div>
+          <div class="text-green-500/70 text-sm mt-1">Open a comms channel.</div>
+        </a>
+
+        <div class="rounded-lg border border-green-500/20 bg-[#0B1018]/70 p-5">
+          <div class="text-white font-bold">Focus</div>
+          <div class="text-green-500/70 text-sm mt-2">
+            automation · integration · dashboards · infrastructure
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: Widgets -->
+    <section class="col-span-12 lg:col-span-4 flex flex-col gap-4">
+      <!-- Spotify widget -->
+      <div class="bg-[#161B22] border border-green-500/20 rounded-lg p-5">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <div class="text-white font-bold">Last Listened To</div>
+            <div class="text-green-500/70 text-xs mt-1">source: Spotify API</div>
+          </div>
+          <div id="spotify-status" class="text-green-500/70 text-sm">
+            fetching…
+          </div>
+        </div>
+
+        <div class="mt-4 flex items-start gap-3">
+          <img
+            id="spotify-image"
+            class="w-14 h-14 rounded-md border border-green-500/10 bg-black/20 hidden"
+            alt="Album cover"
+            loading="lazy"
+          />
+
+          <div>
+            <div id="spotify-title" class="text-white font-semibold">
+              —
+            </div>
+            <div id="spotify-artist" class="text-green-500/70 text-sm mt-1">
+              —
+            </div>
+            <div id="spotify-album" class="text-green-500/60 text-xs mt-1">
+              album: —
+            </div>
+
+            <div class="mt-3">
+              <a
+                id="spotify-link"
+                class="text-green-300 hover:text-white text-sm font-medium hidden transition"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Click here to listen
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links widget -->
+      <div class="bg-[#161B22] border border-green-500/20 rounded-lg p-5">
+        <div class="text-white font-bold">Links</div>
+        <div class="mt-4 grid grid-cols-1 gap-3">
+          <a class="rounded-md border border-green-500/10 bg-black/20 p-4 hover:border-green-400/50 transition" href="#">
+            <div class="text-white font-semibold">GitHub</div>
+            <div class="text-green-500/70 text-sm mt-1">add your profile link</div>
+          </a>
+          <a class="rounded-md border border-green-500/10 bg-black/20 p-4 hover:border-green-400/50 transition" href="#">
+            <div class="text-white font-semibold">LinkedIn</div>
+            <div class="text-green-500/70 text-sm mt-1">add your profile link</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    async function loadSpotify() {
+      const statusEl = document.getElementById("spotify-status");
+      const titleEl = document.getElementById("spotify-title");
+      const artistEl = document.getElementById("spotify-artist");
+      const albumEl = document.getElementById("spotify-album");
+      const imageEl = document.getElementById("spotify-image");
+      const linkEl = document.getElementById("spotify-link");
+
+      try {
+        const res = await fetch("/api/spotify.json", { cache: "no-store" });
+        const data = await res.json();
+
+        if (!res.ok) throw new Error(data?.error || "Failed to fetch Spotify data");
+
+        statusEl.textContent = data.isPlaying ? "● playing" : "online";
+
+        titleEl.textContent = data.title || "—";
+        artistEl.textContent = data.artist || "—";
+        albumEl.textContent = `album: ${data.album || "—"}`;
+
+        if (data.image) {
+          imageEl.src = data.image;
+          imageEl.classList.remove("hidden");
+        } else {
+          imageEl.classList.add("hidden");
+        }
+
+        if (data.url) {
+          linkEl.href = data.url;
+          linkEl.classList.remove("hidden");
+        } else {
+          linkEl.classList.add("hidden");
+        }
+      } catch (e) {
+        statusEl.textContent = "error";
+        titleEl.textContent = "Spotify unavailable";
+        artistEl.textContent = "—";
+        albumEl.textContent = "album: —";
+        imageEl.classList.add("hidden");
+        linkEl.classList.add("hidden");
+      }
+    }
+
+    loadSpotify();
+  </script>
+</Layout>

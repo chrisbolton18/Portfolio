@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+
+const { title = "Portfolio" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content="IT-themed portfolio." />
+  </head>
+
+  <body class="bg-[#0D1117] text-green-400 font-mono">
+    <div class="min-h-screen relative overflow-hidden">
+      <!-- Subtle grid background -->
+      <div
+        class="absolute inset-0 bg-[linear-gradient(to_right,#111_1px,transparent_1px),linear-gradient(to_bottom,#111_1px,transparent_1px)] bg-[size:40px_40px] opacity-20"
+      ></div>
+
+      <!-- Top bar -->
+      <header class="relative z-10 border-b border-green-500/20 bg-[#0B1018]/80 backdrop-blur">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <span class="text-green-400">●</span>
+            <span class="text-white font-bold tracking-wide">PORTFOLIO</span>
+          </div>
+
+          <nav class="flex items-center gap-6 text-sm">
+            <a class="text-green-300/90 hover:text-white transition" href="/">home</a>
+            <a class="text-green-300/90 hover:text-white transition" href="/about">about</a>
+            <a class="text-green-300/90 hover:text-white transition" href="/deployments">deployments</a>
+            <a class="text-green-300/90 hover:text-white transition" href="/contact">contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <!-- Main -->
+      <main class="relative z-10">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+          <slot />
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="relative z-10 border-t border-green-500/10">
+        <div class="max-w-7xl mx-auto px-4 py-6 text-xs text-green-500/70 flex justify-between">
+          <span>status: operational</span>
+          <span>© {new Date().getFullYear()} Chris Bolton</span>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
